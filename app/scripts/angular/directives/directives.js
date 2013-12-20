@@ -58,14 +58,16 @@ angular.module('ngTractor')
             // Wrap template in jqLite...
             newTemplate = angular.element(template.data);
 
-            angular.forEach(newTemplate.find('*'), function(region) {
+            // Iterate through every element in the template, including
+            // top-level elements. This should really be done recursively so we
+            // can stop descending when we reach a region element.
+            angular.forEach(newTemplate.add(newTemplate.find('*')), function(region) {
               // wrap newTemplate.children() in jqLite.
               var _region = angular.element(region);
 
               // if it's a region element AND we have a "transcluded" HTML fragment,
               // replace HTML.
               if(_region.attr("region") && angular.isDefined(_regions[_region.attr("region")])) {
-
                 _region.html(_regions[_region.attr("region")]);
               }
             });
