@@ -44,6 +44,12 @@ Note that you don't need to specify the view or partial folder as they are assum
 
 Partials can also be called from within other partials. When doing so you will always specify their path from the partials folder, not relative to where the partial is (if the partial is inside a folder).
 
+### Repeating partials
+
+You can repeat partials using the "repeat" directive displayed below. The
+attributes of the `<partial>` element are propogated to the top-level template
+element; the repeat directive then works as normal.
+
 ## Layout and Regions
 
 One of the most powerful features of Tractor is template inheritance. With it you are able to create various static templates and  dynamically apply them to pages of content.
@@ -177,7 +183,7 @@ You can also get smaller amounts, and add it to other elements.
 </div>
 ```
 
-### Repeating Directive
+### "Repeat" Directive
 
 Use `repeat=` to repeat the contents of an element. The new elements are created with jQuery's `.clone()` method.
 
@@ -187,7 +193,7 @@ Use `repeat=` to repeat the contents of an element. The new elements are created
   <div>This is my block content.</div>
 </div>
 ```
-This results in the following markup in-browser:
+This results in approximately the following markup in-browser:
 
 ```html
 <div repeat="3" class="ng-scope">
@@ -200,10 +206,10 @@ This results in the following markup in-browser:
 </div>
 ```
 
-Note that text content outside your inner elements is not cloned. This means
-that if your contents consist entirely of inline elements, the cloned elements
-will not have spaces between them.
-
+I say "approximately" because text content outside your inner elements is not
+cloned, including spaces or empty lines. This means that the cloned elements
+will not have spaces between them; include spaces inside the child elements if
+you need spaces in your layout.
 
 ### Pane directive
 

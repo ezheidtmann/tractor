@@ -84,11 +84,9 @@ angular.module('ngTractor')
       restrict: "A",
       compile: function(tElement, attrs) {
         var content = tElement.children();
-        attrs.$observe('repeat', function(newVal) {
-          for (var i=1; i<attrs.repeat; i++) {
-            tElement.append(content.clone());
-          }
-        })
+        for (var i=1; i<attrs.repeat; i++) {
+          tElement.append(content.clone());
+        }
       },
     }
   })
@@ -105,7 +103,6 @@ angular.module('ngTractor')
         var bgColor = (attr.bgColor) ? attr.bgColor : "#CCCCCC";
         var txtColor = (attr.txtColor) ? attr.txtColor : "#959595";
         var text = (attr.text) ? attr.text : scope.dimensions;
-        console.log(text);
 
 
         var config = {
