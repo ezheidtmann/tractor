@@ -7,7 +7,7 @@ angular.module('ngTractor', [])
       when('/', {
         templateUrl: 'views/home.html'
       }).
-      when('/:name', {
+      when('/:name*', {
         templateUrl: function($routeParams) {
                return 'views/' + $routeParams.name + '.html';
              },
