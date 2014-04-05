@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('ngTractor', [])
+angular.module('ngTractor', [
+  'ui.bootstrap'
+  ])
   .config(function ($locationProvider, $routeProvider) {
     //$locationProvider.html5Mode(true);
     $routeProvider.
@@ -16,6 +18,3 @@ angular.module('ngTractor', [])
         redirectTo: '/'
       });
   });
-
-
-
