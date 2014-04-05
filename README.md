@@ -146,6 +146,30 @@ This might seem a lot of work when getting started, but for larger projects you 
 
 ## Additional features
 
+
+### Bootstrap
+
+Custom BS File is located here bootstrap/less/app.less
+
+#### Bootstrap UI is available
+
+Example markup
+
+```html
+<div ng-controller="CollapseDemoCtrl">
+  <button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
+  <hr>
+  <div collapse="!isCollapsed">
+    <div class="well well-lg">Some content</div> 
+  </div>
+</div>
+```
+Place controllers in app.js
+
+    function CollapseDemoCtrl($scope) {
+      $scope.isCollapsed = false;
+    }
+
 ### Placeholder Images
 
 You can use the `ph-img` attribute to add placeholder images:
